@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physics Sandbox</title>
+    <link rel="stylesheet" href="../shared-styles.css">
+    <link rel="stylesheet" href="../gear-icon.css">
+    <link rel="stylesheet" href="../style-additions.css">
+    <link rel="stylesheet" href="../comments-styles.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/matter-js@0.18.0/build/matter.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gun/gun.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Physics Sandbox</h1>
+        <div class="tool-bar">
+            <button id="circle-btn" class="tool-btn">Circle</button>
+            <button id="box-btn" class="tool-btn">Box</button>
+            <button id="polygon-btn" class="tool-btn">Polygon</button>
+            <button id="ragdoll-btn" class="tool-btn">Ragdoll</button>
+            <button id="liquid-btn" class="tool-btn">Liquid</button>
+            <button id="clear-btn" class="tool-btn clear">Clear All</button>
+        </div>
+    </header>
+    
+    <div id="options-button">
+        <svg class="gear-icon-svg" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path class="gear-path" d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" stroke="var(--accent-color)" stroke-width="1.5"/>
+            <path class="gear-path" d="M19.4 15C19.1277 15.6172 19.2583 16.3343 19.73 16.82L19.79 16.88C20.1837 17.2737 20.4009 17.8055 20.4009 18.36C20.4009 18.9145 20.1837 19.4463 19.79 19.84C19.3963 20.2337 18.8645 20.4509 18.31 20.4509C17.7555 20.4509 17.2237 20.2337 16.83 19.84L16.77 19.78C16.2843 19.3083 15.5672 19.1777 14.95 19.45C14.3487 19.7064 13.9795 20.2955 14 20.94V21.07C14 22.2 13.1 23.1 12 23.1C10.9 23.1 10 22.2 10 21.1V20.99C10.0102 20.3393 9.63648 19.7349 9.03 19.47C8.4128 19.1977 7.6957 19.3283 7.21 19.8L7.15 19.86C6.75628 20.2537 6.22452 20.4709 5.67 20.4709C5.11548 20.4709 4.58372 20.2537 4.19 19.86C3.79628 19.4663 3.57913 18.9345 3.57913 18.38C3.57913 17.8255 3.79628 17.2937 4.19 16.9L4.25 16.84C4.72167 16.3543 4.85231 15.6372 4.58 15.02C4.32354 14.4187 3.73446 14.0495 3.09 14.07H2.93C1.8 14.07 0.9 13.16 0.9 12.07C0.9 10.98 1.8 10.07 2.9 10.07H3.01C3.66071 10.0802 4.26508 9.70648 4.53 9.10001C4.80231 8.48281 4.67167 7.76573 4.2 7.28L4.14 7.22C3.74628 6.82628 3.52913 6.29452 3.52913 5.74C3.52913 5.18548 3.74628 4.65371 4.14 4.26C4.53372 3.86628 5.06548 3.64913 5.62 3.64913C6.17452 3.64913 6.70628 3.86628 7.1 4.26L7.16 4.32C7.64573 4.79167 8.36281 4.92231 8.98 4.65C9.58151 4.38354 9.9507 3.79446 9.93 3.15V3C9.93 1.9 10.83 1 11.93 1C13.03 1 13.93 1.9 13.93 3V3.09C13.9207 3.74071 14.2944 4.33508 14.9 4.6C15.5172 4.87231 16.2343 4.74167 16.72 4.27L16.78 4.21C17.1737 3.81628 17.7055 3.59913 18.26 3.59913C18.8145 3.59913 19.3463 3.81628 19.74 4.21C20.1337 4.60371 20.3509 5.13548 20.3509 5.69C20.3509 6.24452 20.1337 6.77628 19.74 7.17L19.68 7.23C19.2083 7.71573 19.0777 8.43281 19.35 9.05C19.6165 9.65151 20.2055 10.0207 20.85 10H21C22.1 10 23 10.9 23 12C23 13.1 22.1 14 21 14H20.88C20.2293 13.9898 19.6249 14.3635 19.36 14.97L19.4 15Z" stroke="var(--accent-color)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </div>
+    
+    <div class="simulation-container">
+        <canvas id="physics-canvas"></canvas>
+        <div class="info-panel">
+            <h3>Controls</h3>
+            <ul>
+                <li>Click a shape button and click on the canvas to spawn</li>
+                <li>Drag objects to move them around</li>
+                <li>Use the liquid button to toggle water physics</li>
+                <li>Adjust size slider to change object size</li>
+            </ul>
+            <div class="physics-stats">
+                <div>Objects: <span id="object-count">0</span></div>
+                <div>FPS: <span id="fps-counter">0</span></div>
+            </div>
+        </div>
+        
+        <div class="size-controls">
+            <label for="size-slider">Object Size</label>
+            <input type="range" id="size-slider" class="size-slider" min="0.5" max="2.5" step="0.1" value="1">
+            <span id="size-value">1.0x</span>
+        </div>
+        
+        <div class="environment-controls">
+            <button id="toggle-gravity" class="env-btn">Gravity: On</button>
+            <button id="toggle-liquid" class="env-btn">Water: Off</button>
+            <button id="toggle-wind" class="env-btn">Wind: Off</button>
+        </div>
+        
+        <div id="liquid-container" class="liquid-container" style="display: none;"></div>
+    </div>
+    
+    <footer>
+        <p>Physics Sandbox - <a href="../index.html">Back to Main Page</a></p>
+    </footer>
+    
+    <script type="module" src="main.js"></script>
+</body>
+</html>
