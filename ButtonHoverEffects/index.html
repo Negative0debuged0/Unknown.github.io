@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Hover Effects</title>
+    <link rel="stylesheet" href="../shared-styles.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../gear-icon.css">
+    <link rel="stylesheet" href="../style-additions.css">
+    <link rel="stylesheet" href="../styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/gun/gun.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Button Hover Effects Gallery</h1>
+        <p>Hover over each button to see its unique animation effect</p>
+    </header>
+    
+    <div id="options-button">
+        <svg class="gear-icon-svg" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path class="gear-path" d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" stroke="var(--accent-color)" stroke-width="1.5"/>
+            <path class="gear-path" d="M19.4 15C19.1277 15.6172 19.2583 16.3343 19.73 16.82L19.79 16.88C20.1837 17.2737 20.4009 17.8055 20.4009 18.36C20.4009 18.9145 20.1837 19.4463 19.79 19.84C19.3963 20.2337 18.8645 20.4509 18.31 20.4509C17.7555 20.4509 17.2237 20.2337 16.83 19.84L16.77 19.78C16.2843 19.3083 15.5672 19.1777 14.95 19.45C14.3487 19.7064 13.9795 20.2955 14 20.94V21.07C14 22.2 13.1 23.1 12 23.1C10.9 23.1 10 22.2 10 21.1V20.99C10.0102 20.3393 9.63648 19.7349 9.03 19.47C8.4128 19.1977 7.6957 19.3283 7.21 19.8L7.15 19.86C6.75628 20.2537 6.22452 20.4709 5.67 20.4709C5.11548 20.4709 4.58372 20.2537 4.19 19.86C3.79628 19.4663 3.57913 18.9345 3.57913 18.38C3.57913 17.8255 3.79628 17.2937 4.19 16.9L4.25 16.84C4.72167 16.3543 4.85231 15.6372 4.58 15.02C4.32354 14.4187 3.73446 14.0495 3.09 14.07H2.93C1.8 14.07 0.9 13.16 0.9 12.07C0.9 10.98 1.8 10.07 2.9 10.07H3.01C3.66071 10.0802 4.26508 9.70648 4.53 9.10001C4.80231 8.48281 4.67167 7.76573 4.2 7.28L4.14 7.22C3.74628 6.82628 3.52913 6.29452 3.52913 5.74C3.52913 5.18548 3.74628 4.65371 4.14 4.26C4.53372 3.86628 5.06548 3.64913 5.62 3.64913C6.17452 3.64913 6.70628 3.86628 7.1 4.26L7.16 4.32C7.64573 4.79167 8.36281 4.92231 8.98 4.65C9.58151 4.38354 9.9507 3.79446 9.93 3.15V3C9.93 1.9 10.83 1 11.93 1C13.03 1 13.93 1.9 13.93 3V3.09C13.9207 3.74071 14.2944 4.33508 14.9 4.6C15.5172 4.87231 16.2343 4.74167 16.72 4.27L16.78 4.21C17.1737 3.81628 17.7055 3.59913 18.26 3.59913C18.8145 3.59913 19.3463 3.81628 19.74 4.21C20.1337 4.60371 20.3509 5.13548 20.3509 5.69C20.3509 6.24452 20.1337 6.77628 19.74 7.17L19.68 7.23C19.2083 7.71573 19.0777 8.43281 19.35 9.05C19.6165 9.65151 20.2055 10.0207 20.85 10H21C22.1 10 23 10.9 23 12C23 13.1 22.1 14 21 14H20.88C20.2293 13.9898 19.6249 14.3635 19.36 14.97L19.4 15Z" stroke="var(--accent-color)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </div>
+    
+    <main>
+        <div class="buttons-container">
+            <!-- Glow Effect -->
+            <div class="button-card">
+                <h3>Glow Effect</h3>
+                <button class="hover-btn glow-effect">Hover Me</button>
+            </div>
+            
+            <!-- Scale Effect -->
+            <div class="button-card">
+                <h3>Scale Effect</h3>
+                <button class="hover-btn scale-effect">Hover Me</button>
+            </div>
+            
+            <!-- Border Animation -->
+            <div class="button-card">
+                <h3>Border Animation</h3>
+                <button class="hover-btn border-animation">Hover Me</button>
+            </div>
+            
+            <!-- Text Slide -->
+            <div class="button-card">
+                <h3>Text Slide</h3>
+                <button class="hover-btn text-slide">
+                    <span class="hover-text">Hover Me</span>
+                    <span class="hover-text-hidden">Click Me!</span>
+                </button>
+            </div>
+            
+            <!-- Shadow Shift -->
+            <div class="button-card">
+                <h3>Shadow Shift</h3>
+                <button class="hover-btn shadow-shift">Hover Me</button>
+            </div>
+            
+            <!-- Ripple Effect -->
+            <div class="button-card">
+                <h3>Ripple Effect</h3>
+                <button class="hover-btn ripple-effect">Hover Me</button>
+            </div>
+            
+            <!-- Neon Outline -->
+            <div class="button-card">
+                <h3>Neon Outline</h3>
+                <button class="hover-btn neon-outline">Hover Me</button>
+            </div>
+            
+            <!-- Shake Effect -->
+            <div class="button-card">
+                <h3>Shake Effect</h3>
+                <button class="hover-btn shake-effect">Hover Me</button>
+            </div>
+            
+            <!-- 3D Flip -->
+            <div class="button-card">
+                <h3>3D Flip</h3>
+                <div class="flip-container">
+                    <div class="flipper">
+                        <div class="front">Hover Me</div>
+                        <div class="back">Flipped!</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Gradient Shift -->
+            <div class="button-card">
+                <h3>Gradient Shift</h3>
+                <button class="hover-btn gradient-shift">Hover Me</button>
+            </div>
+            
+            <!-- Pulse Effect -->
+            <div class="button-card">
+                <h3>Pulse Effect</h3>
+                <button class="hover-btn pulse-effect">Hover Me</button>
+            </div>
+            
+            <!-- Circle Fill -->
+            <div class="button-card">
+                <h3>Circle Fill</h3>
+                <button class="hover-btn circle-fill">Hover Me</button>
+            </div>
+            
+            <!-- Liquid Fill -->
+            <div class="button-card">
+                <h3>Liquid Fill</h3>
+                <button class="hover-btn liquid-fill">Hover Me</button>
+            </div>
+            
+            <!-- Split Text -->
+            <div class="button-card">
+                <h3>Split Text</h3>
+                <button class="hover-btn split-text">
+                    <span class="split-text-content">Hover Me</span>
+                </button>
+            </div>
+            
+            <!-- Magnetic Pull -->
+            <div class="button-card">
+                <h3>Magnetic Pull</h3>
+                <button class="hover-btn magnetic-pull">Hover Me</button>
+            </div>
+            
+            <!-- Glitch Effect -->
+            <div class="button-card">
+                <h3>Glitch Effect</h3>
+                <button class="hover-btn glitch-effect">Hover Me</button>
+            </div>
+            
+            <!-- Swipe Layer -->
+            <div class="button-card">
+                <h3>Swipe Layer</h3>
+                <button class="hover-btn swipe-layer">Hover Me</button>
+            </div>
+            
+            <!-- Elastic -->
+            <div class="button-card">
+                <h3>Elastic</h3>
+                <button class="hover-btn elastic-effect">Hover Me</button>
+            </div>
+            
+            <!-- Outline Draw -->
+            <div class="button-card">
+                <h3>Outline Draw</h3>
+                <button class="hover-btn outline-draw">Hover Me</button>
+            </div>
+            
+            <!-- Spotlight -->
+            <div class="button-card">
+                <h3>Spotlight</h3>
+                <button class="hover-btn spotlight-effect">Hover Me</button>
+            </div>
+            
+            <!-- Rainbow Border -->
+            <div class="button-card">
+                <h3>Rainbow Border</h3>
+                <button class="hover-btn rainbow-border">Hover Me</button>
+            </div>
+            
+            <!-- Noise Texture -->
+            <div class="button-card">
+                <h3>Noise Texture</h3>
+                <button class="hover-btn noise-texture">Hover Me</button>
+            </div>
+            
+            <!-- Bubble Rise -->
+            <div class="button-card">
+                <h3>Bubble Rise</h3>
+                <button class="hover-btn bubble-rise">Hover Me</button>
+            </div>
+            
+            <!-- Skew Transform -->
+            <div class="button-card">
+                <h3>Skew Transform</h3>
+                <button class="hover-btn skew-transform">Hover Me</button>
+            </div>
+            
+            <!-- Expanding Border -->
+            <div class="button-card">
+                <h3>Expanding Border</h3>
+                <button class="hover-btn expanding-border">Hover Me</button>
+            </div>
+            
+            <!-- Letter Spacing -->
+            <div class="button-card">
+                <h3>Letter Spacing</h3>
+                <button class="hover-btn letter-spacing">Hover Me</button>
+            </div>
+            
+            <!-- Rotating Icon -->
+            <div class="button-card">
+                <h3>Rotating Icon</h3>
+                <button class="hover-btn rotating-icon">Hover Me</button>
+            </div>
+            
+            <!-- Slice Animation -->
+            <div class="button-card">
+                <h3>Slice Animation</h3>
+                <button class="hover-btn slice-animation">Hover Me</button>
+            </div>
+            
+            <!-- Bounce Effect -->
+            <div class="button-card">
+                <h3>Bounce Effect</h3>
+                <button class="hover-btn bounce-effect">Hover Me</button>
+            </div>
+            
+            <!-- Blur Shadow -->
+            <div class="button-card">
+                <h3>Blur Shadow</h3>
+                <button class="hover-btn blur-shadow">Hover Me</button>
+            </div>
+            
+            <!-- New effects start here -->
+            
+            <!-- Color Shift -->
+            <div class="button-card">
+                <h3>Color Shift</h3>
+                <button class="hover-btn color-shift">Hover Me</button>
+            </div>
+            
+            <!-- Morph -->
+            <div class="button-card">
+                <h3>Morph</h3>
+                <button class="hover-btn morph-effect">Hover Me</button>
+            </div>
+            
+            <!-- Sheen Effect -->
+            <div class="button-card">
+                <h3>Sheen Effect</h3>
+                <button class="hover-btn sheen-effect">Hover Me</button>
+            </div>
+            
+            <!-- Text Blur -->
+            <div class="button-card">
+                <h3>Text Blur</h3>
+                <button class="hover-btn text-blur">Hover Me</button>
+            </div>
+            
+            <!-- Heartbeat -->
+            <div class="button-card">
+                <h3>Heartbeat</h3>
+                <button class="hover-btn heartbeat">Hover Me</button>
+            </div>
+            
+            <!-- Radial Highlight -->
+            <div class="button-card">
+                <h3>Radial Highlight</h3>
+                <button class="hover-btn radial-highlight">Hover Me</button>
+            </div>
+            
+            <!-- 3D Push -->
+            <div class="button-card">
+                <h3>3D Push</h3>
+                <button class="hover-btn push-3d">Hover Me</button>
+            </div>
+            
+            <!-- Zoom Out -->
+            <div class="button-card">
+                <h3>Zoom Out</h3>
+                <button class="hover-btn zoom-out">Hover Me</button>
+            </div>
+            
+            <!-- Hollow Fill -->
+            <div class="button-card">
+                <h3>Hollow Fill</h3>
+                <button class="hover-btn hollow-fill">Hover Me</button>
+            </div>
+            
+            <!-- Diagonal Swipe -->
+            <div class="button-card">
+                <h3>Diagonal Swipe</h3>
+                <button class="hover-btn diagonal-swipe">Hover Me</button>
+            </div>
+            
+            <!-- Icon Swap -->
+            <div class="button-card">
+                <h3>Icon Swap</h3>
+                <button class="hover-btn icon-swap">&#9654; Hover Me</button>
+            </div>
+            
+            <!-- Glowing Edges -->
+            <div class="button-card">
+                <h3>Glowing Edges</h3>
+                <button class="hover-btn glowing-edges">Hover Me</button>
+            </div>
+            
+            <!-- Shadow Inset -->
+            <div class="button-card">
+                <h3>Shadow Inset</h3>
+                <button class="hover-btn shadow-inset">Hover Me</button>
+            </div>
+            
+            <!-- Color Rain -->
+            <div class="button-card">
+                <h3>Color Rain</h3>
+                <button class="hover-btn color-rain">Hover Me</button>
+            </div>
+            
+            <!-- Paper Fold -->
+            <div class="button-card">
+                <h3>Paper Fold</h3>
+                <button class="hover-btn paper-fold">Hover Me</button>
+            </div>
+            
+            <!-- Ghost -->
+            <div class="button-card">
+                <h3>Ghost</h3>
+                <button class="hover-btn ghost-effect">Hover Me</button>
+            </div>
+            
+            <!-- Spinning Loader -->
+            <div class="button-card">
+                <h3>Spinning Loader</h3>
+                <button class="hover-btn spinning-loader">Hover Me</button>
+            </div>
+            
+            <!-- Staggered Rise -->
+            <div class="button-card">
+                <h3>Staggered Rise</h3>
+                <button class="hover-btn staggered-rise">Hover Me</button>
+            </div>
+            
+            <!-- 3D Tilt -->
+            <div class="button-card">
+                <h3>3D Tilt</h3>
+                <button class="hover-btn tilt-3d">Hover Me</button>
+            </div>
+            
+            <!-- Particle Burst -->
+            <div class="button-card">
+                <h3>Particle Burst</h3>
+                <button class="hover-btn particle-burst">Hover Me</button>
+            </div>
+            
+            <!-- Layered Shadows -->
+            <div class="button-card">
+                <h3>Layered Shadows</h3>
+                <button class="hover-btn layered-shadows">Hover Me</button>
+            </div>
+            
+            <!-- Stretchy -->
+            <div class="button-card">
+                <h3>Stretchy</h3>
+                <button class="hover-btn stretchy-effect">Hover Me</button>
+            </div>
+            
+            <!-- Comic Pop -->
+            <div class="button-card">
+                <h3>Comic Pop</h3>
+                <button class="hover-btn comic-pop">Hover Me</button>
+            </div>
+            
+            <!-- Pixel Dissolve -->
+            <div class="button-card">
+                <h3>Pixel Dissolve</h3>
+                <button class="hover-btn pixel-dissolve">Hover Me</button>
+            </div>
+            
+            <!-- Rotate Scale -->
+            <div class="button-card">
+                <h3>Rotate Scale</h3>
+                <button class="hover-btn rotate-scale">Hover Me</button>
+            </div>
+            
+            <!-- Jump Shake -->
+            <div class="button-card">
+                <h3>Jump Shake</h3>
+                <button class="hover-btn jump-shake">Hover Me</button>
+            </div>
+            
+            <!-- Echo -->
+            <div class="button-card">
+                <h3>Echo</h3>
+                <button class="hover-btn echo-effect">Hover Me</button>
+            </div>
+            
+            <!-- Reflection -->
+            <div class="button-card">
+                <h3>Reflection</h3>
+                <button class="hover-btn reflection">Hover Me</button>
+            </div>
+            
+            <!-- Shine Lines -->
+            <div class="button-card">
+                <h3>Shine Lines</h3>
+                <button class="hover-btn shine-lines">Hover Me</button>
+            </div>
+            
+            <!-- Reveal Text -->
+            <div class="button-card">
+                <h3>Reveal Text</h3>
+                <button class="hover-btn reveal-text">Hover Me</button>
+            </div>
+            
+            <!-- Gradient Border -->
+            <div class="button-card">
+                <h3>Gradient Border</h3>
+                <button class="hover-btn gradient-border">Hover Me</button>
+            </div>
+            
+            <!-- Snake Border -->
+            <div class="button-card">
+                <h3>Snake Border</h3>
+                <button class="hover-btn snake-border">Hover Me</button>
+            </div>
+            
+            <!-- Character Rise -->
+            <div class="button-card">
+                <h3>Character Rise</h3>
+                <button class="hover-btn character-rise">Hover Me</button>
+            </div>
+            
+            <!-- Squeeze -->
+            <div class="button-card">
+                <h3>Squeeze</h3>
+                <button class="hover-btn squeeze">Hover Me</button>
+            </div>
+            
+            <!-- Text Wave -->
+            <div class="button-card">
+                <h3>Text Wave</h3>
+                <button class="hover-btn text-wave">Hover Me</button>
+            </div>
+            
+            <!-- Neon Flicker -->
+            <div class="button-card">
+                <h3>Neon Flicker</h3>
+                <button class="hover-btn neon-flicker">Hover Me</button>
+            </div>
+            
+            <!-- Split Color -->
+            <div class="button-card">
+                <h3>Split Color</h3>
+                <button class="hover-btn split-color">Hover Me</button>
+            </div>
+            
+            <!-- Bouncy Shadow -->
+            <div class="button-card">
+                <h3>Bouncy Shadow</h3>
+                <button class="hover-btn bouncy-shadow">Hover Me</button>
+            </div>
+            
+            <!-- Wind Effect -->
+            <div class="button-card">
+                <h3>Wind Effect</h3>
+                <button class="hover-btn wind-effect">Hover Me</button>
+            </div>
+            
+            <!-- Perspective Tilt -->
+            <div class="button-card">
+                <h3>Perspective Tilt</h3>
+                <button class="hover-btn perspective-tilt">Hover Me</button>
+            </div>
+            
+            <!-- Shrink Border -->
+            <div class="button-card">
+                <h3>Shrink Border</h3>
+                <button class="hover-btn shrink-border">Hover Me</button>
+            </div>
+            
+            <!-- Rotational Push -->
+            <div class="button-card">
+                <h3>Rotational Push</h3>
+                <button class="hover-btn rotational-push">Hover Me</button>
+            </div>
+            
+            <!-- Dotted Trail -->
+            <div class="button-card">
+                <h3>Dotted Trail</h3>
+                <button class="hover-btn dotted-trail">Hover Me</button>
+            </div>
+            
+            <!-- Polaroid -->
+            <div class="button-card">
+                <h3>Polaroid</h3>
+                <button class="hover-btn polaroid">Hover Me</button>
+            </div>
+            
+            <!-- Checkbox -->
+            <div class="button-card">
+                <h3>Checkbox</h3>
+                <button class="hover-btn checkbox-style">Hover Me</button>
+            </div>
+            
+            <!-- Arrow Appear -->
+            <div class="button-card">
+                <h3>Arrow Appear</h3>
+                <button class="hover-btn arrow-appear">Hover Me</button>
+            </div>
+            
+            <!-- Marquee -->
+            <div class="button-card">
+                <h3>Marquee</h3>
+                <button class="hover-btn marquee-effect">Hover Me</button>
+            </div>
+            
+            <!-- Slide Up Fill -->
+            <div class="button-card">
+                <h3>Slide Up Fill</h3>
+                <button class="hover-btn slide-up-fill">Hover Me</button>
+            </div>
+            
+            <!-- Jello Effect -->
+            <div class="button-card">
+                <h3>Jello Effect</h3>
+                <button class="hover-btn jello-effect">Hover Me</button>
+            </div>
+            
+            <!-- Diagonal Cut -->
+            <div class="button-card">
+                <h3>Diagonal Cut</h3>
+                <button class="hover-btn diagonal-cut">Hover Me</button>
+            </div>
+            
+            <!-- Fragmented -->
+            <div class="button-card">
+                <h3>Fragmented</h3>
+                <button class="hover-btn fragmented">Hover Me</button>
+            </div>
+            
+            <!-- Picture Frame -->
+            <div class="button-card">
+                <h3>Picture Frame</h3>
+                <button class="hover-btn picture-frame">Hover Me</button>
+            </div>
+            
+            <!-- Iris Wipe -->
+            <div class="button-card">
+                <h3>Iris Wipe</h3>
+                <button class="hover-btn iris-wipe">Hover Me</button>
+            </div>
+            
+            <!-- Underline Slide -->
+            <div class="button-card">
+                <h3>Underline Slide</h3>
+                <button class="hover-btn underline-slide">Hover Me</button>
+            </div>
+            
+            <!-- Spiral Spin -->
+            <div class="button-card">
+                <h3>Spiral Spin</h3>
+                <button class="hover-btn spiral-spin">Hover Me</button>
+            </div>
+            
+            <!-- Text Shadow -->
+            <div class="button-card">
+                <h3>Text Shadow</h3>
+                <button class="hover-btn text-shadow">Hover Me</button>
+            </div>
+            
+            <!-- Flash -->
+            <div class="button-card">
+                <h3>Flash</h3>
+                <button class="hover-btn flash-effect">Hover Me</button>
+            </div>
+            
+            <!-- Vibration -->
+            <div class="button-card">
+                <h3>Vibration</h3>
+                <button class="hover-btn vibration">Hover Me</button>
+            </div>
+            
+            <!-- Double Swipe -->
+            <div class="button-card">
+                <h3>Double Swipe</h3>
+                <button class="hover-btn double-swipe">Hover Me</button>
+            </div>
+            
+            <!-- Expand Corners -->
+            <div class="button-card">
+                <h3>Expand Corners</h3>
+                <button class="hover-btn expand-corners">Hover Me</button>
+            </div>
+            
+            <!-- Magnet Attract -->
+            <div class="button-card">
+                <h3>Magnet Attract</h3>
+                <button class="hover-btn magnet-attract">Hover Me</button>
+            </div>
+            
+            <!-- Fade In Text -->
+            <div class="button-card">
+                <h3>Fade In Text</h3>
+                <button class="hover-btn fade-in-text">Hover Me</button>
+            </div>
+            
+            <!-- Slash Through -->
+            <div class="button-card">
+                <h3>Slash Through</h3>
+                <button class="hover-btn slash-through">Hover Me</button>
+            </div>
+            
+            <!-- Curtain Reveal -->
+            <div class="button-card">
+                <h3>Curtain Reveal</h3>
+                <button class="hover-btn curtain-reveal">Hover Me</button>
+            </div>
+            
+            <!-- Blurred Edge -->
+            <div class="button-card">
+                <h3>Blurred Edge</h3>
+                <button class="hover-btn blurred-edge">Hover Me</button>
+            </div>
+            
+            <!-- Side Bounce -->
+            <div class="button-card">
+                <h3>Side Bounce</h3>
+                <button class="hover-btn side-bounce">Hover Me</button>
+            </div>
+            
+            <!-- Lift Shadow -->
+            <div class="button-card">
+                <h3>Lift Shadow</h3>
+                <button class="hover-btn lift-shadow">Hover Me</button>
+            </div>
+            
+            <!-- Zoom Background -->
+            <div class="button-card">
+                <h3>Zoom Background</h3>
+                <button class="hover-btn zoom-background">Hover Me</button>
+            </div>
+            
+            <!-- Uneven Border -->
+            <div class="button-card">
+                <h3>Uneven Border</h3>
+                <button class="hover-btn uneven-border">Hover Me</button>
+            </div>
+            
+            <!-- Typewriter -->
+            <div class="button-card">
+                <h3>Typewriter</h3>
+                <button class="hover-btn typewriter">Hover Me</button>
+            </div>
+            
+            <!-- Starburst -->
+            <div class="button-card">
+                <h3>Starburst</h3>
+                <button class="hover-btn starburst">Hover Me</button>
+            </div>
+            
+            <!-- Sonar Effect -->
+            <div class="button-card">
+                <h3>Sonar Effect</h3>
+                <button class="hover-btn sonar-effect">Hover Me</button>
+            </div>
+            
+            <!-- Stitched Button -->
+            <div class="button-card">
+                <h3>Stitched Button</h3>
+                <button class="hover-btn stitched">Hover Me</button>
+            </div>
+            
+            <!-- Pill Shape -->
+            <div class="button-card">
+                <h3>Pill Shape</h3>
+                <button class="hover-btn pill-shape">Hover Me</button>
+            </div>
+            
+            <!-- Origami Fold -->
+            <div class="button-card">
+                <h3>Origami Fold</h3>
+                <button class="hover-btn origami-fold">Hover Me</button>
+            </div>
+            
+            <!-- Radial Wipe -->
+            <div class="button-card">
+                <h3>Radial Wipe</h3>
+                <button class="hover-btn radial-wipe">Hover Me</button>
+            </div>
+            
+            <!-- Perspective Rotate -->
+            <div class="button-card">
+                <h3>Perspective Rotate</h3>
+                <button class="hover-btn perspective-rotate">Hover Me</button>
+            </div>
+            
+            <!-- Unfolding -->
+            <div class="button-card">
+                <h3>Unfolding</h3>
+                <button class="hover-btn unfolding">Hover Me</button>
+            </div>
+            
+            <!-- Shadow Drop -->
+            <div class="button-card">
+                <h3>Shadow Drop</h3>
+                <button class="hover-btn shadow-drop">Hover Me</button>
+            </div>
+            
+            <!-- Perspective Swing -->
+            <div class="button-card">
+                <h3>Perspective Swing</h3>
+                <button class="hover-btn perspective-swing">Hover Me</button>
+            </div>
+            
+            <!-- Hollow To Filled -->
+            <div class="button-card">
+                <h3>Hollow To Filled</h3>
+                <button class="hover-btn hollow-to-filled">Hover Me</button>
+            </div>
+            
+            <!-- Border Rotation -->
+            <div class="button-card">
+                <h3>Border Rotation</h3>
+                <button class="hover-btn border-rotation">Hover Me</button>
+            </div>
+            
+            <!-- Lightning -->
+            <div class="button-card">
+                <h3>Lightning</h3>
+                <button class="hover-btn lightning">Hover Me</button>
+            </div>
+            
+            <!-- Cell Division -->
+            <div class="button-card">
+                <h3>Cell Division</h3>
+                <button class="hover-btn cell-division">Hover Me</button>
+            </div>
+            
+            <!-- Glass Effect -->
+            <div class="button-card">
+                <h3>Glass Effect</h3>
+                <button class="hover-btn glass-effect">Hover Me</button>
+            </div>
+            
+            <!-- Spin Entry -->
+            <div class="button-card">
+                <h3>Spin Entry</h3>
+                <button class="hover-btn spin-entry">Hover Me</button>
+            </div>
+            
+            <!-- Character Parade -->
+            <div class="button-card">
+                <h3>Character Parade</h3>
+                <button class="hover-btn character-parade">Hover Me</button>
+            </div>
+            
+            <!-- Triple Bounce -->
+            <div class="button-card">
+                <h3>Triple Bounce</h3>
+                <button class="hover-btn triple-bounce">Hover Me</button>
+            </div>
+            
+            <!-- SVG Effect -->
+            <div class="button-card">
+                <h3>SVG Effect</h3>
+                <button class="hover-btn svg-effect">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="svg-icon">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <path d="M12 16v-4M12 8h.01"></path>
+                    </svg>
+                    Hover Me
+                </button>
+            </div>
+            
+            <!-- Spotlight Track -->
+            <div class="button-card">
+                <h3>Spotlight Track</h3>
+                <button class="hover-btn spotlight-track">Hover Me</button>
+            </div>
+            
+            <!-- Letter Flip -->
+            <div class="button-card">
+                <h3>Letter Flip</h3>
+                <button class="hover-btn letter-flip">Hover Me</button>
+            </div>
+            
+            <!-- Magnet Push -->
+            <div class="button-card">
+                <h3>Magnet Push</h3>
+                <button class="hover-btn magnet-push">Hover Me</button>
+            </div>
+            
+            <!-- Floating Button -->
+            <div class="button-card">
+                <h3>Floating Button</h3>
+                <button class="hover-btn floating-button">Hover Me</button>
+            </div>
+            
+            <!-- Ripple Out -->
+            <div class="button-card">
+                <h3>Ripple Out</h3>
+                <button class="hover-btn ripple-out">Hover Me</button>
+            </div>
+            
+            <!-- Color Sound Wave -->
+            <div class="button-card">
+                <h3>Color Sound Wave</h3>
+                <button class="hover-btn color-sound-wave">Hover Me</button>
+            </div>
+            
+            <!-- 3D Shadow -->
+            <div class="button-card">
+                <h3>3D Shadow</h3>
+                <button class="hover-btn shadow-3d">Hover Me</button>
+            </div>
+            
+            <!-- Radial Progress -->
+            <div class="button-card">
+                <h3>Radial Progress</h3>
+                <button class="hover-btn radial-progress">Hover Me</button>
+            </div>
+            
+            <!-- Crosshair -->
+            <div class="button-card">
+                <h3>Crosshair</h3>
+                <button class="hover-btn crosshair">Hover Me</button>
+            </div>
+            
+            <!-- Shadow Rotation -->
+            <div class="button-card">
+                <h3>Shadow Rotation</h3>
+                <button class="hover-btn shadow-rotation">Hover Me</button>
+            </div>
+            
+            <!-- Bubble Shine -->
+            <div class="button-card">
+                <h3>Bubble Shine</h3>
+                <button class="hover-btn bubble-shine">Hover Me</button>
+            </div>
+            
+            <!-- Breathing Effect -->
+            <div class="button-card">
+                <h3>Breathing Effect</h3>
+                <button class="hover-btn breathing-effect">Hover Me</button>
+            </div>
+            
+            <!-- Text Shuffle -->
+            <div class="button-card">
+                <h3>Text Shuffle</h3>
+                <button class="hover-btn text-shuffle">Hover Me</button>
+            </div>
+            
+            <!-- Slice In -->
+            <div class="button-card">
+                <h3>Slice In</h3>
+                <button class="hover-btn slice-in">Hover Me</button>
+            </div>
+            
+        </div>
+    </main>
+    
+    <footer>
+        <p>Button Hover Effects Gallery - <a href="../index.html">Back to Main Page</a></p>
+    </footer>
+    
+    <script type="module" src="script.js"></script>
+</body>
+</html>

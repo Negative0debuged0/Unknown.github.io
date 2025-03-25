@@ -1,0 +1,183 @@
+/* Comments section styles */
+.comments-section {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--card-border-color);
+}
+
+.comments-section h2 {
+    margin-bottom: 1.5rem;
+}
+
+.comment-form-container {
+    margin-bottom: 2rem;
+}
+
+.comment-textarea {
+    width: 100%;
+    min-height: 100px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background-color: var(--card-bg-color);
+    color: var(--text-color);
+    border: 1px solid var(--card-border-color);
+    border-radius: 8px;
+    resize: vertical;
+    font-family: inherit;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.comment-textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.1);
+}
+
+.comment-textarea:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.comment-button {
+    padding: 0.8rem 1.5rem;
+    background-color: var(--card-bg-color);
+    color: var(--accent-color);
+    border: 1px solid var(--accent-color);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+.comment-button:hover:not(:disabled) {
+    background-color: var(--accent-color);
+    color: var(--main-bg-color);
+}
+
+.comment-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.comments-container {
+    max-height: 500px;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+.comments-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.comment-item {
+    background-color: var(--card-bg-color);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid var(--card-border-color);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.comment-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+.comment-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.comment-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 1rem;
+    border: 2px solid var(--accent-color);
+}
+
+.comment-meta {
+    display: flex;
+    flex-direction: column;
+}
+
+.comment-author {
+    font-weight: bold;
+    color: var(--accent-color);
+    margin-bottom: 0.2rem;
+}
+
+.comment-timestamp {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.comment-text {
+    line-height: 1.5;
+    color: var(--text-color);
+    word-break: break-word;
+}
+
+.comment-input {
+    padding: 0.8rem;
+    background-color: var(--card-bg-color);
+    color: var(--text-color);
+    border: 1px solid var(--card-border-color);
+    border-radius: 5px;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.comment-input:focus {
+    outline: none;
+    border-color: var(--accent-color);
+}
+
+.logged-in-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logged-in-container p {
+    margin: 0;
+}
+
+/* Notification */
+.notification {
+    position: fixed;
+    bottom: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--card-bg-color);
+    color: var(--text-color);
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border-left: 4px solid var(--accent-color);
+    z-index: 1000;
+    transition: bottom 0.5s ease;
+}
+
+.notification.active {
+    bottom: 20px;
+}
+
+@media (max-width: 768px) {
+    .login-form {
+        flex-direction: column;
+    }
+    
+    .comment-input, .comment-button {
+        width: 100%;
+    }
+    
+    .logged-in-container {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: flex-start;
+    }
+}

@@ -1,0 +1,59 @@
+/* Shared styles between main site and ButtonHoverEffects */
+:root {
+    --main-bg-color: #000000;
+    --card-bg-color: #0a0a0a;
+    --text-color: #ffffff;
+    --accent-color: #ffffff;
+    --header-bg-color: #000000;
+    --card-hover-color: #0f0f0f;
+    --card-border-color: rgba(255, 255, 255, 0.2);
+    --glitch-color1: #0ff;
+    --glitch-color2: #f0f;
+    --animation-intensity: 1;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--main-bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* Header styles */
+header {
+    background-color: var(--header-bg-color);
+    padding: 1.5rem 1rem;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid var(--accent-color);
+}
+
+footer {
+    background-color: var(--header-bg-color);
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 3rem;
+    border-top: 1px solid var(--accent-color);
+    position: relative;
+    overflow: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text-color);
+}
+
+p, h1, h2, h3, h4, h5, h6, span, li {
+    cursor: none;
+}
+
+a, button, .hover-btn, .flipper, #options-button, .close-popup, .close-options {
+    cursor: none !important;
+}

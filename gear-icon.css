@@ -1,0 +1,36 @@
+/* Gear icon animation and styles */
+.gear-icon-svg {
+    width: 28px;
+    height: 28px;
+    transition: transform 1.5s ease;
+}
+
+#options-button:hover .gear-icon-svg {
+    transform: rotate(180deg);
+}
+
+.gear-path {
+    stroke: var(--accent-color);
+    stroke-width: 1.5;
+    transition: stroke 0.3s ease, filter 0.3s ease;
+}
+
+#options-button:hover .gear-path {
+    stroke-width: 2;
+    filter: drop-shadow(0 0 2px var(--accent-color));
+}
+
+/* Add pulsing animation to options button */
+@keyframes pulse-option {
+    0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(255, 255, 255, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+}
+
+#options-button {
+    animation: pulse-option 2s infinite;
+}
+
+#options-button:hover {
+    animation: none;
+}

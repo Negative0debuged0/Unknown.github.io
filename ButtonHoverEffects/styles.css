@@ -1,0 +1,2738 @@
+/* Global Styles - override shared styles */
+:root {
+    --hover-color: var(--accent-color);
+    --secondary-color: var(--accent-color);
+    --primary-color: var(--text-color);
+    --background-color: var(--main-bg-color);
+    --card-color: var(--card-bg-color);
+    --text-color: var(--text-color);
+    --shadow-color: rgba(255, 255, 255, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* Header & Footer */
+header, footer {
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+header h1 {
+    color: var(--secondary-color);
+    margin-bottom: 0.5rem;
+}
+
+/* Main Container */
+.buttons-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem 4rem;
+}
+
+/* Button Card */
+.button-card {
+    background-color: var(--card-bg-color);
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 4px 10px var(--shadow-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border: 1px solid var(--card-border-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: none !important;
+}
+
+.button-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+.button-card h3 {
+    margin-bottom: 1.5rem;
+    color: var(--accent-color);
+}
+
+/* Base Button Style */
+.hover-btn {
+    position: relative;
+    padding: 0.8rem 1.8rem;
+    border: none;
+    background-color: var(--secondary-color);
+    color: var(--main-bg-color);
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 5px;
+    cursor: none !important;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* 1. Glow Effect */
+.glow-effect:hover {
+    box-shadow: 0 0 20px var(--secondary-color);
+    transform: translateY(-3px);
+}
+
+/* 2. Scale Effect */
+.scale-effect:hover {
+    transform: scale(1.1);
+}
+
+/* 3. Border Animation */
+.border-animation {
+    border: 2px solid transparent;
+    background-color: transparent;
+    color: var(--secondary-color);
+    position: relative;
+    z-index: 1;
+}
+
+.border-animation::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: var(--secondary-color);
+    transition: all 0.3s ease;
+    z-index: -1;
+}
+
+.border-animation:hover {
+    color: white;
+    border: 2px solid var(--secondary-color);
+}
+
+.border-animation:hover::before {
+    width: 100%;
+}
+
+/* 4. Text Slide */
+.text-slide {
+    position: relative;
+    overflow: hidden;
+}
+
+.text-slide .hover-text, 
+.text-slide .hover-text-hidden {
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.text-slide .hover-text-hidden {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(100%);
+}
+
+.text-slide:hover .hover-text {
+    transform: translateY(-100%);
+}
+
+.text-slide:hover .hover-text-hidden {
+    transform: translateY(0);
+}
+
+/* 5. Shadow Shift */
+.shadow-shift {
+    box-shadow: 3px 3px 0 var(--hover-color);
+    transition: all 0.2s ease;
+}
+
+.shadow-shift:hover {
+    transform: translate(3px, 3px);
+    box-shadow: 0px 0px 0 var(--hover-color);
+}
+
+/* 6. Ripple Effect */
+.ripple-effect {
+    position: relative;
+    overflow: hidden;
+}
+
+.ripple-effect::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease-out, height 0.6s ease-out;
+}
+
+.ripple-effect:hover::after {
+    width: 300px;
+    height: 300px;
+}
+
+/* 7. Neon Outline */
+.neon-outline {
+    background-color: transparent;
+    border: 2px solid var(--secondary-color);
+    color: var(--secondary-color);
+    transition: all 0.3s ease;
+}
+
+.neon-outline:hover {
+    box-shadow: 0 0 10px var(--secondary-color), 
+                0 0 20px var(--secondary-color), 
+                0 0 30px var(--secondary-color);
+    text-shadow: 0 0 5px var(--secondary-color);
+}
+
+/* 8. Shake Effect */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+.shake-effect:hover {
+    animation: shake 0.5s ease;
+}
+
+/* 9. 3D Flip */
+.flip-container {
+    perspective: 1000px;
+    width: 160px;
+    height: 45px;
+    cursor: none !important;
+}
+
+.flipper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    cursor: none !important;
+}
+
+.flip-container:hover .flipper {
+    transform: rotateY(180deg);
+}
+
+.front, .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    cursor: none !important;
+}
+
+.front {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.back {
+    background-color: var(--hover-color);
+    color: white;
+    transform: rotateY(180deg);
+}
+
+/* 10. Gradient Shift */
+.gradient-shift {
+    background: linear-gradient(45deg, var(--secondary-color) 0%, var(--hover-color) 100%);
+    background-size: 200% 200%;
+    background-position: 0 0;
+    transition: background-position 0.5s ease;
+}
+
+.gradient-shift:hover {
+    background-position: 100% 100%;
+}
+
+/* 11. Pulse Effect */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.pulse-effect:hover {
+    animation: pulse 1s infinite;
+}
+
+/* 12. Circle Fill */
+.circle-fill {
+    position: relative;
+    z-index: 1;
+    background-color: transparent;
+    border: 2px solid var(--secondary-color);
+    color: var(--secondary-color);
+    transition: all 0.4s ease;
+}
+
+.circle-fill::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background-color: var(--secondary-color);
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    transition: all 0.4s ease;
+}
+
+.circle-fill:hover {
+    color: white;
+}
+
+.circle-fill:hover::before {
+    width: 200%;
+    height: 200%;
+}
+
+/* 13. Liquid Fill */
+.liquid-fill {
+    position: relative;
+    background-color: transparent;
+    color: var(--secondary-color);
+    border: 2px solid var(--secondary-color);
+    overflow: hidden;
+    z-index: 1;
+}
+
+.liquid-fill::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 0;
+    background-color: var(--secondary-color);
+    transition: height 0.4s cubic-bezier(0.65, 0, 0.35, 1);
+    z-index: -1;
+}
+
+.liquid-fill:hover {
+    color: var(--main-bg-color);
+}
+
+.liquid-fill:hover::before {
+    height: 100%;
+}
+
+/* 14. Split Text */
+.split-text {
+    position: relative;
+    overflow: hidden;
+}
+
+.split-text-content {
+    display: inline-block;
+    transition: transform 0.3s ease;
+    position: relative;
+}
+
+.split-text-content::before {
+    content: attr(data-content);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.split-text:hover .split-text-content {
+    transform: translateY(-100%);
+}
+
+.split-text:hover .split-text-content::before {
+    transform: translateY(0);
+}
+
+/* 15. Magnetic Pull */
+.magnetic-pull {
+    transition: transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1.2);
+}
+
+/* 16. Glitch Effect */
+@keyframes glitch {
+    0% { transform: translate(0); }
+    20% { transform: translate(-3px, 3px); }
+    40% { transform: translate(-3px, -3px); }
+    60% { transform: translate(3px, 3px); }
+    80% { transform: translate(3px, -3px); }
+    100% { transform: translate(0); }
+}
+
+.glitch-effect:hover {
+    animation: glitch 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+    text-shadow: 2px 0 var(--hover-color), -2px 0 var(--hover-color), 0 2px var(--hover-color), 0 -2px var(--hover-color);
+}
+
+/* 17. Swipe Layer */
+.swipe-layer {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.swipe-layer::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: left 0.4s ease;
+    z-index: -1;
+}
+
+.swipe-layer:hover::after {
+    left: 100%;
+}
+
+/* 18. Elastic Effect */
+@keyframes elastic {
+    0% { transform: scaleX(1); }
+    25% { transform: scaleX(1.2); }
+    50% { transform: scaleX(0.9); }
+    75% { transform: scaleX(1.05); }
+    100% { transform: scaleX(1); }
+}
+
+.elastic-effect:hover {
+    animation: elastic 0.6s ease;
+}
+
+/* 19. Outline Draw */
+.outline-draw {
+    background-color: transparent;
+    color: var(--secondary-color);
+    border: 0;
+    position: relative;
+}
+
+.outline-draw::before, 
+.outline-draw::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    opacity: 1;
+    border: 2px solid transparent;
+    box-sizing: border-box;
+}
+
+.outline-draw::before {
+    top: 0;
+    left: 0;
+    transition: width 0.25s ease-out, height 0.25s ease-out 0.25s;
+}
+
+.outline-draw::after {
+    bottom: 0;
+    right: 0;
+    transition: height 0.25s ease-out, width 0.25s ease-out 0.25s;
+}
+
+.outline-draw:hover::before {
+    width: 100%;
+    height: 100%;
+    border-top-color: var(--secondary-color);
+    border-right-color: var(--secondary-color);
+}
+
+.outline-draw:hover::after {
+    width: 100%;
+    height: 100%;
+    border-bottom-color: var(--secondary-color);
+    border-left-color: var(--secondary-color);
+}
+
+/* 20. Spotlight Effect */
+.spotlight-effect {
+    position: relative;
+    overflow: hidden;
+}
+
+.spotlight-effect::before {
+    content: '';
+    position: absolute;
+    top: var(--spotlight-y, -100px);
+    left: var(--spotlight-x, -100px);
+    width: 50px;
+    height: 50px;
+    background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, transparent 70%);
+    border-radius: 50%;
+    transition: opacity 0.05s ease-out;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.spotlight-effect:hover::before {
+    opacity: 0.3;
+    transform: scale(1);
+}
+
+/* 21. Rainbow Border */
+@keyframes rainbow-border {
+    0% { border-color: #ff0000; }
+    14% { border-color: #ff7f00; }
+    28% { border-color: #ffff00; }
+    42% { border-color: #00ff00; }
+    57% { border-color: #0000ff; }
+    71% { border-color: #4b0082; }
+    85% { border-color: #9400d3; }
+    100% { border-color: #ff0000; }
+}
+
+.rainbow-border {
+    background-color: transparent;
+    border: 3px solid var(--secondary-color);
+    color: var(--secondary-color);
+}
+
+.rainbow-border:hover {
+    animation: rainbow-border 3s linear infinite;
+}
+
+/* 22. Noise Texture */
+.noise-texture {
+    position: relative;
+    overflow: hidden;
+}
+
+.noise-texture::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    mix-blend-mode: overlay;
+    z-index: -1;
+}
+
+.noise-texture:hover::before {
+    opacity: 0.4;
+}
+
+/* 23. Bubble Rise */
+.bubble-rise {
+    position: relative;
+    overflow: hidden;
+}
+
+.bubble-rise::before,
+.bubble-rise::after {
+    content: '';
+    position: absolute;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: scale(0);
+    transition: all 0.5s ease;
+}
+
+.bubble-rise::before {
+    width: 20px;
+    height: 20px;
+    bottom: 5px;
+    left: 30%;
+}
+
+.bubble-rise::after {
+    width: 15px;
+    height: 15px;
+    bottom: 5px;
+    left: 60%;
+    transition-delay: 0.2s;
+}
+
+.bubble-rise:hover::before,
+.bubble-rise:hover::after {
+    transform: scale(1) translateY(-40px);
+    opacity: 0;
+}
+
+/* 24. Skew Transform */
+.skew-transform {
+    transition: transform 0.3s ease;
+}
+
+.skew-transform:hover {
+    transform: skew(-10deg);
+}
+
+/* 25. Expanding Border */
+.expanding-border {
+    position: relative;
+    background-color: transparent;
+    color: var(--secondary-color);
+    border: 2px solid var(--secondary-color);
+    transition: all 0.3s ease;
+}
+
+.expanding-border::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border: 2px solid var(--secondary-color);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.expanding-border:hover {
+    color: var(--secondary-color);
+}
+
+.expanding-border:hover::after {
+    opacity: 1;
+    top: -8px;
+    left: -8px;
+    right: -8px;
+    bottom: -8px;
+}
+
+/* 26. Letter Spacing */
+.letter-spacing {
+    letter-spacing: normal;
+    transition: letter-spacing 0.3s ease;
+}
+
+.letter-spacing:hover {
+    letter-spacing: 3px;
+}
+
+/* 27. Rotating Icon */
+.rotating-icon {
+    position: relative;
+    overflow: hidden;
+    padding-right: 35px;
+}
+
+.rotating-icon::after {
+    content: '→';
+    position: absolute;
+    right: 15px;
+    transition: transform 0.3s ease;
+}
+
+.rotating-icon:hover::after {
+    transform: rotate(90deg);
+}
+
+/* 28. Slice Animation */
+.slice-animation {
+    position: relative;
+    overflow: hidden;
+}
+
+.slice-animation::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background-color: var(--secondary-color);
+    transition: left 0.3s ease;
+}
+
+.slice-animation::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: 2px;
+    background-color: var(--secondary-color);
+    transition: right 0.3s ease;
+}
+
+.slice-animation:hover::before {
+    left: 0;
+}
+
+.slice-animation:hover::after {
+    right: 0;
+}
+
+/* 29. Bounce Effect */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+    40% {transform: translateY(-10px);}
+    60% {transform: translateY(-5px);}
+}
+
+.bounce-effect:hover {
+    animation: bounce 1s;
+}
+
+/* 30. Blurred Shadow */
+.blur-shadow {
+    box-shadow: 0 0 0 rgba(0,0,0,0);
+    transition: box-shadow 0.3s ease;
+}
+
+.blur-shadow:hover {
+    box-shadow: 0 0 20px var(--secondary-color);
+    filter: drop-shadow(0 0 15px var(--secondary-color));
+}
+
+/* 31. Color Shift */
+.color-shift {
+    transition: background-color 0.4s ease;
+}
+
+.color-shift:hover {
+    background-color: #ff6b6b;
+}
+
+/* 32. Morph Effect */
+.morph-effect {
+    transition: border-radius 0.3s ease, transform 0.3s ease;
+}
+
+.morph-effect:hover {
+    border-radius: 25px;
+    transform: perspective(500px) rotateX(10deg);
+}
+
+/* 33. Sheen Effect */
+.sheen-effect {
+    position: relative;
+    overflow: hidden;
+}
+
+.sheen-effect::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -200%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0) 100%);
+    transform: skewX(-25deg);
+    transition: all 0.5s ease;
+}
+
+.sheen-effect:hover::after {
+    left: 100%;
+}
+
+/* 34. Text Blur */
+.text-blur {
+    transition: all 0.3s ease;
+}
+
+.text-blur:hover {
+    color: transparent;
+    text-shadow: 0 0 5px var(--secondary-color);
+}
+
+/* 35. Heartbeat */
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    10% { transform: scale(1.1); }
+    20% { transform: scale(1); }
+    30% { transform: scale(1.1); }
+    40% { transform: scale(1); }
+    100% { transform: scale(1); }
+}
+
+.heartbeat:hover {
+    animation: heartbeat 1s ease-in-out;
+}
+
+/* 36. Radial Highlight */
+.radial-highlight {
+    position: relative;
+    overflow: hidden;
+}
+
+.radial-highlight::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.radial-highlight:hover::before {
+    opacity: 1;
+}
+
+/* 37. 3D Push */
+.push-3d {
+    transition: all 0.3s ease;
+}
+
+.push-3d:hover {
+    transform: perspective(500px) translateZ(-10px);
+    box-shadow: 0 15px 15px rgba(0,0,0,0.3);
+}
+
+/* 38. Zoom Out */
+.zoom-out {
+    transition: all 0.3s ease;
+    transform: scale(1);
+}
+
+.zoom-out:hover {
+    transform: scale(0.9);
+}
+
+/* 39. Hollow Fill */
+.hollow-fill {
+    background-color: transparent;
+    border: 2px solid var(--secondary-color);
+    color: var(--secondary-color);
+    transition: all 0.3s ease;
+}
+
+.hollow-fill:hover {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+/* 40. Diagonal Swipe */
+.diagonal-swipe {
+    position: relative;
+    overflow: hidden;
+}
+
+.diagonal-swipe::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 150%;
+    height: 100%;
+    background-color: rgba(255,255,255,0.2);
+    transform: translateX(-125%) translateY(-25%) rotate(45deg);
+    transition: transform 0.6s ease;
+}
+
+.diagonal-swipe:hover::before {
+    transform: translateX(25%) translateY(-25%) rotate(45deg);
+}
+
+/* 41. Icon Swap */
+.icon-swap {
+    transition: all 0.3s ease;
+}
+
+.icon-swap:hover {
+    content: '▷ Clicked!';
+}
+
+.icon-swap:hover::before {
+    content: '❯';
+    margin-right: 5px;
+}
+
+/* 42. Glowing Edges */
+.glowing-edges {
+    position: relative;
+    border: none;
+    background-color: var(--secondary-color);
+}
+
+.glowing-edges::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.glowing-edges:hover::before {
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 8px var(--secondary-color);
+}
+
+/* 43. Shadow Inset */
+.shadow-inset {
+    transition: all 0.3s ease;
+}
+
+.shadow-inset:hover {
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+}
+
+/* 44. Color Rain */
+@keyframes colorRain {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.color-rain {
+    background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #8675a9, #ffbe0b);
+    background-size: 300% 300%;
+    border: none;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.color-rain:hover {
+    animation: colorRain 3s ease infinite;
+}
+
+/* 45. Paper Fold */
+.paper-fold {
+    transition: all 0.4s ease;
+    transform-origin: top right;
+}
+
+.paper-fold:hover {
+    transform: perspective(500px) rotateX(10deg) rotateZ(-5deg);
+    box-shadow: -2px 5px 10px rgba(0,0,0,0.2);
+}
+
+/* 46. Ghost */
+.ghost-effect {
+    transition: all 0.3s ease;
+    background-color: var(--secondary-color);
+}
+
+.ghost-effect:hover {
+    background-color: transparent;
+    border: 2px solid var(--secondary-color);
+    color: var(--secondary-color);
+    box-shadow: none;
+}
+
+/* 47. Spinning Loader */
+@keyframes spinLoader {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.spinning-loader::after {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    border: 2px solid transparent;
+    border-top-color: var(--secondary-color);
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.spinning-loader:hover::after {
+    opacity: 1;
+    animation: spinLoader 1s linear infinite;
+}
+
+/* 48. Staggered Rise */
+.staggered-rise:hover span {
+    display: inline-block;
+    animation: staggerRise 0.3s ease forwards;
+}
+
+.staggered-rise:hover span:nth-child(2) {
+    animation-delay: 0.05s;
+}
+
+.staggered-rise:hover span:nth-child(3) {
+    animation-delay: 0.1s;
+}
+
+@keyframes staggerRise {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+/* 49. 3D Tilt */
+.tilt-3d {
+    transition: all 0.3s ease;
+}
+
+.tilt-3d:hover {
+    transform: perspective(500px) rotateX(10deg) rotateY(10deg);
+    box-shadow: -5px 5px 10px rgba(0,0,0,0.2);
+}
+
+/* 50. Particle Burst */
+@keyframes particleBurst {
+    0% { transform: translate(-50%, -50%) scale(0); opacity: 1; }
+    100% { transform: translate(-50%, -50%) scale(2); opacity: 0; }
+}
+
+.particle-burst {
+    position: relative;
+    overflow: hidden;
+}
+
+.particle-burst::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, var(--secondary-color) 0%, transparent 60%);
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.particle-burst:hover::before {
+    animation: particleBurst 0.5s ease forwards;
+}
+
+/* 51. Layered Shadows */
+.layered-shadows {
+    transition: all 0.3s ease;
+}
+
+.layered-shadows:hover {
+    box-shadow: 
+        0 5px 15px rgba(0,0,0,0.1),
+        0 10px 25px rgba(0,0,0,0.15),
+        0 15px 35px rgba(0,0,0,0.2);
+}
+
+/* 52. Stretchy */
+.stretchy-effect {
+    transition: all 0.3s ease;
+}
+
+.stretchy-effect:hover {
+    transform: scaleX(1.2);
+}
+
+/* 53. Comic Pop */
+.comic-pop {
+    transition: all 0.2s ease;
+}
+
+.comic-pop:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    border: 3px solid white;
+}
+
+/* 54. Pixel Dissolve */
+.pixel-dissolve {
+    position: relative;
+    background-image: linear-gradient(to right, var(--secondary-color) 0%, var(--secondary-color) 100%);
+    background-size: 10px 10px;
+    transition: all 0.3s ease;
+}
+
+.pixel-dissolve:hover {
+    background-image: linear-gradient(to right, var(--secondary-color) 0%, transparent 50%, var(--secondary-color) 100%);
+    background-size: 20px 20px;
+}
+
+/* 55. Rotate Scale */
+.rotate-scale {
+    transition: all 0.3s ease;
+}
+
+.rotate-scale:hover {
+    transform: rotate(10deg) scale(1.1);
+}
+
+/* 56. Jump Shake */
+@keyframes jumpShake {
+    0% { transform: translateY(0); }
+    25% { transform: translateY(-10px) rotate(-5deg); }
+    50% { transform: translateY(0) rotate(5deg); }
+    75% { transform: translateY(-5px) rotate(-3deg); }
+    100% { transform: translateY(0); }
+}
+
+.jump-shake:hover {
+    animation: jumpShake 0.5s ease;
+}
+
+/* 57. Echo */
+@keyframes echoEffect {
+    0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4); }
+    70% { box-shadow: 0 0 0 15px rgba(255, 255, 255, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+}
+
+.echo-effect:hover {
+    animation: echoEffect 1s ease infinite;
+}
+
+/* 58. Reflection */
+.reflection {
+    position: relative;
+    overflow: hidden;
+}
+
+.reflection::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.1) 50%, transparent 50%, transparent 100%);
+    transform: translateX(-100%) translateY(-100%);
+    transition: all 0.3s ease;
+}
+
+.reflection:hover::after {
+    transform: translateX(0) translateY(0);
+}
+
+/* 59. Shine Lines */
+@keyframes shineLines {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+.shine-lines {
+    background: linear-gradient(90deg, transparent 0%, transparent 45%, rgba(255,255,255,0.2) 50%, transparent 55%, transparent 100%);
+    background-size: 200% 100%;
+    transition: all 0.3s ease;
+}
+
+.shine-lines:hover {
+    animation: shineLines 1s ease infinite;
+}
+
+/* 60. Reveal Text */
+.reveal-text {
+    position: relative;
+    overflow: hidden;
+}
+
+.reveal-text::after {
+    content: "Click Now";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--secondary-color);
+    color: white;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.reveal-text:hover::after {
+    transform: translateY(0);
+}
+
+/* 61. Gradient Border */
+.gradient-border {
+    position: relative;
+    background-color: transparent;
+    border: none;
+    color: var(--secondary-color);
+    z-index: 1;
+}
+
+.gradient-border::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #8675a9, #ffbe0b);
+    border-radius: 6px;
+    z-index: -1;
+    transition: all 0.3s ease;
+}
+
+.gradient-border::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--card-bg-color);
+    border-radius: 5px;
+    z-index: -1;
+    transition: all 0.3s ease;
+}
+
+.gradient-border:hover::after {
+    top: 2px;
+    left: 2px;
+    right: 2px;
+    bottom: 2px;
+}
+
+/* 62. Snake Border */
+@keyframes snakeBorder {
+    0% { width: 0; height: 2px; top: 0; left: 0; }
+    25% { width: 100%; height: 2px; top: 0; left: 0; }
+    50% { width: 2px; height: 100%; top: 0; left: calc(100% - 2px); }
+    75% { width: 100%; height: 2px; top: calc(100% - 2px); left: 0; }
+    100% { width: 2px; height: 100%; top: 0; left: 0; }
+}
+
+.snake-border {
+    position: relative;
+    background-color: transparent;
+    border: none;
+    color: var(--secondary-color);
+}
+
+.snake-border::before {
+    content: '';
+    position: absolute;
+    background-color: var(--secondary-color);
+    transition: all 0.3s ease;
+}
+
+.snake-border:hover::before {
+    animation: snakeBorder 1.5s linear infinite;
+}
+
+/* 63. Character Rise */
+@keyframes characterRise {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+.character-rise:hover {
+    position: relative;
+}
+
+.character-rise:hover::after {
+    content: 'H o v e r  M e';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: characterRise 2s ease infinite;
+}
+
+/* 64. Squeeze */
+.squeeze {
+    transition: all 0.3s ease;
+}
+
+.squeeze:hover {
+    transform: scaleX(0.9) scaleY(1.1);
+}
+
+/* 65. Text Wave */
+@keyframes textWave {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(0); }
+}
+
+.text-wave:hover::after {
+    content: 'Hover Me';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.text-wave:hover span:nth-child(1) { animation: textWave 0.5s ease infinite; animation-delay: 0.1s; }
+.text-wave:hover span:nth-child(2) { animation: textWave 0.5s ease infinite; animation-delay: 0.2s; }
+.text-wave:hover span:nth-child(3) { animation: textWave 0.5s ease infinite; animation-delay: 0.3s; }
+.text-wave:hover span:nth-child(4) { animation: textWave 0.5s ease infinite; animation-delay: 0.4s; }
+.text-wave:hover span:nth-child(5) { animation: textWave 0.5s ease infinite; animation-delay: 0.5s; }
+.text-wave:hover span:nth-child(6) { animation: textWave 0.5s ease infinite; animation-delay: 0.6s; }
+.text-wave:hover span:nth-child(7) { animation: textWave 0.5s ease infinite; animation-delay: 0.7s; }
+.text-wave:hover span:nth-child(8) { animation: textWave 0.5s ease infinite; animation-delay: 0.8s; }
+
+/* 66. Neon Flicker */
+@keyframes neonFlicker {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { 
+        text-shadow: 0 0 5px var(--secondary-color),
+                     0 0 10px var(--secondary-color),
+                     0 0 15px var(--secondary-color);
+        box-shadow: 0 0 5px var(--secondary-color),
+                    0 0 10px var(--secondary-color);
+    }
+    20%, 24%, 55% { 
+        text-shadow: none;
+        box-shadow: none;
+    }
+}
+
+.neon-flicker {
+    background-color: transparent;
+    border: 2px solid var(--secondary-color);
+    color: var(--secondary-color);
+}
+
+.neon-flicker:hover {
+    animation: neonFlicker 1.5s ease infinite;
+}
+
+/* 67. Split Color */
+.split-color {
+    position: relative;
+    overflow: hidden;
+    background: var(--secondary-color);
+    transition: all 0.3s ease;
+}
+
+.split-color::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: #4ecdc4;
+    transition: all 0.3s ease;
+    z-index: -1;
+}
+
+.split-color:hover {
+    color: white;
+}
+
+.split-color:hover::before {
+    left: 0;
+}
+
+/* 68. Bouncy Shadow */
+@keyframes bouncyShadow {
+    0%, 100% { box-shadow: 0 10px 15px rgba(0,0,0,0.2); transform: translateY(0); }
+    50% { box-shadow: 0 20px 15px rgba(0,0,0,0.1); transform: translateY(-10px); }
+}
+
+.bouncy-shadow:hover {
+    animation: bouncyShadow 0.8s ease infinite;
+}
+
+/* 69. Wind Effect */
+@keyframes windEffect {
+    0% { transform: skewX(0deg); }
+    25% { transform: skewX(10deg); }
+    75% { transform: skewX(-10deg); }
+    100% { transform: skewX(0deg); }
+}
+
+.wind-effect:hover {
+    animation: windEffect 0.5s ease;
+}
+
+/* 70. Perspective Tilt */
+.perspective-tilt {
+    transition: all 0.3s ease;
+}
+
+.perspective-tilt:hover {
+    transform: perspective(500px) rotateX(15deg);
+}
+
+/* 71. Shrink Border */
+.shrink-border {
+    position: relative;
+    background-color: transparent;
+    border: none;
+    color: var(--secondary-color);
+}
+
+.shrink-border::before, .shrink-border::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 2px solid var(--secondary-color);
+    transition: all 0.3s ease;
+}
+
+.shrink-border:hover::before {
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+}
+
+/* 72. Rotational Push */
+.rotational-push {
+    transition: all 0.3s ease;
+    transform-origin: bottom right;
+}
+
+.rotational-push:hover {
+    transform: rotate(-3deg);
+}
+
+/* 73. Dotted Trail */
+.dotted-trail {
+    position: relative;
+    overflow: hidden;
+}
+
+.dotted-trail::after {
+    content: '• • • • •';
+    position: absolute;
+    top: calc(50% - 10px);
+    left: 0;
+    width: 100%;
+    text-align: center;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.dotted-trail:hover::after {
+    opacity: 0.5;
+}
+
+/* 74. Polaroid */
+.polaroid {
+    transition: all 0.3s ease;
+    border: 5px solid white;
+    background-color: white;
+    color: #333;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+
+.polaroid:hover {
+    transform: rotate(-5deg);
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
+}
+
+/* 75. Checkbox */
+.checkbox-style {
+    position: relative;
+    padding-left: 35px;
+    background-color: transparent;
+    border: 2px solid var(--secondary-color);
+    color: var(--secondary-color);
+}
+
+.checkbox-style::before {
+    content: '';
+    position: absolute;
+    top: calc(50% - 8px);
+    left: 10px;
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--secondary-color);
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+.checkbox-style::after {
+    content: '✓';
+    position: absolute;
+    top: calc(50% - 9px);
+    left: 13px;
+    font-size: 14px;
+    color: white;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.checkbox-style:hover::before {
+    background-color: var(--secondary-color);
+}
+
+.checkbox-style:hover::after {
+    opacity: 1;
+}
+
+/* 76. Arrow Appear */
+.arrow-appear {
+    position: relative;
+    padding-right: 30px;
+}
+
+.arrow-appear::after {
+    content: '→';
+    position: absolute;
+    right: 15px;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.arrow-appear:hover {
+    padding-right: 40px;
+}
+
+.arrow-appear:hover::after {
+    opacity: 1;
+    right: 10px;
+}
+
+/* 77. Marquee */
+@keyframes marqueeEffect {
+    0% { background-position: 0% 0; }
+    100% { background-position: 100% 0; }
+}
+
+.marquee-effect {
+    background: repeating-linear-gradient(45deg, var(--secondary-color), var(--secondary-color) 10px, rgba(255,255,255,0.2) 10px, rgba(255,255,255,0.2) 20px);
+    background-size: 200% 100%;
+    transition: all 0.3s ease;
+}
+
+.marquee-effect:hover {
+    animation: marqueeEffect 1.5s linear infinite;
+}
+
+/* 78. Slide Up Fill */
+.slide-up-fill {
+    position: relative;
+    background-color: transparent;
+    border: 2px solid var(--secondary-color);
+    color: var(--secondary-color);
+    overflow: hidden;
+    z-index: 1;
+}
+
+.slide-up-fill::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background-color: var(--secondary-color);
+    transition: all 0.3s ease;
+    z-index: -1;
+}
+
+.slide-up-fill:hover {
+    color: white;
+}
+
+.slide-up-fill:hover::before {
+    height: 100%;
+}
+
+/* 79. Jello Effect */
+@keyframes jelloEffect {
+    0%, 100% { transform: scale(1, 1); }
+    30% { transform: scale(1.25, 0.75); }
+    40% { transform: scale(0.75, 1.25); }
+    50% { transform: scale(1.15, 0.85); }
+    65% { transform: scale(0.95, 1.05); }
+    75% { transform: scale(1.05, 0.95); }
+}
+
+.jello-effect:hover {
+    animation: jelloEffect 0.8s ease;
+}
+
+/* 80. Diagonal Cut */
+.diagonal-cut {
+    position: relative;
+    background-color: var(--secondary-color);
+    overflow: hidden;
+}
+
+.diagonal-cut::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    background-color: rgba(255,255,255,0.2);
+    transform: rotate(45deg) translate(-50%, -50%);
+    transition: all 0.3s ease;
+}
+
+.diagonal-cut:hover::after {
+    transform: rotate(45deg) translate(50%, 50%);
+}
+
+/* 81. Fragmented */
+.fragmented {
+    position: relative;
+    overflow: hidden;
+}
+
+.fragmented::before, .fragmented::after {
+    content: '';
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    top: 0;
+    background-color: var(--secondary-color);
+    transition: all 0.3s ease;
+}
+
+.fragmented::before {
+    left: 0;
+}
+
+.fragmented::after {
+    right: 0;
+}
+
+.fragmented:hover::before {
+    transform: translateX(-100%);
+}
+
+.fragmented:hover::after {
+    transform: translateX(100%);
+}
+
+/* 82. Picture Frame */
+.picture-frame {
+    position: relative;
+    background-color: transparent;
+    border: none;
+    color: var(--secondary-color);
+    padding: 15px 25px;
+}
+
+.picture-frame::before, .picture-frame::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 2px solid var(--secondary-color);
+    transition: all 0.3s ease;
+}
+
+.picture-frame::after {
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+}
+
+.picture-frame:hover::before {
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+}
+
+.picture-frame:hover::after {
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+}
+
+/* 83. Iris Wipe */
+.iris-wipe {
+    position: relative;
+    overflow: hidden;
+}
+
+.iris-wipe::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background-color: rgba(255,255,255,0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+}
+
+.iris-wipe:hover::before {
+    width: 150%;
+    height: 150%;
+}
+
+/* 84. Underline Slide */
+.underline-slide {
+    position: relative;
+}
+
+.underline-slide::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--secondary-color);
+    transition: all 0.3s ease;
+}
+
+.underline-slide:hover::after {
+    width: 100%;
+}
+
+/* 85. Spiral Spin */
+@keyframes spiralSpin {
+    0% { transform: rotate(0) scale(1); }
+    50% { transform: rotate(180deg) scale(0.8); }
+    100% { transform: rotate(360deg) scale(1); }
+}
+
+.spiral-spin:hover {
+    animation: spiralSpin 0.7s ease;
+}
+
+/* 86. Text Shadow */
+.text-shadow {
+    transition: all 0.3s ease;
+}
+
+.text-shadow:hover {
+    text-shadow: 3px 3px 0 rgba(0,0,0,0.3);
+}
+
+/* 87. Flash */
+@keyframes flashEffect {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.flash-effect:hover {
+    animation: flashEffect 0.5s ease;
+}
+
+/* 88. Vibration */
+@keyframes vibrationEffect {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-2px); }
+    40%, 80% { transform: translateX(2px); }
+}
+
+.vibration:hover {
+    animation: vibrationEffect 0.1s linear infinite;
+}
+
+/* 89. Double Swipe */
+.double-swipe {
+    position: relative;
+    overflow: hidden;
+}
+
+.double-swipe::before, .double-swipe::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    background-color: rgba(255,255,255,0.2);
+    transition: all 0.3s ease;
+}
+
+.double-swipe::before {
+    left: -100%;
+}
+
+.double-swipe::after {
+    right: -100%;
+}
+
+.double-swipe:hover::before {
+    left: 0;
+}
+
+.double-swipe:hover::after {
+    right: 0;
+}
+
+/* 90. Expand Corners */
+.expand-corners {
+    position: relative;
+    background-color: transparent;
+    border: none;
+    color: var(--secondary-color);
+}
+
+.expand-corners::before, .expand-corners::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-color: var(--secondary-color);
+    border-style: solid;
+    transition: all 0.3s ease;
+}
+
+.expand-corners::before {
+    top: 0;
+    left: 0;
+    border-width: 2px 0 0 2px;
+}
+
+.expand-corners::after {
+    bottom: 0;
+    right: 0;
+    border-width: 0 2px 2px 0;
+}
+
+.expand-corners:hover::before, .expand-corners:hover::after {
+    width: calc(50% + 10px);
+    height: calc(50% + 10px);
+}
+
+/* 91. Magnet Attract */
+.magnet-attract {
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.magnet-attract:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* 92. Fade In Text */
+.fade-in-text {
+    position: relative;
+}
+
+.fade-in-text::after {
+    content: 'Click Me';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--secondary-color);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.fade-in-text:hover::after {
+    opacity: 1;
+}
+
+/* 93. Slash Through */
+.slash-through {
+    position: relative;
+}
+
+.slash-through::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -10%;
+    width: 0;
+    height: 2px;
+    background-color: rgba(255,255,255,0.8);
+    transform: rotate(-45deg);
+    transition: all 0.3s ease;
+}
+
+.slash-through:hover::before {
+    width: 120%;
+}
+
+/* 94. Curtain Reveal */
+.curtain-reveal {
+    position: relative;
+    overflow: hidden;
+}
+
+.curtain-reveal::before, .curtain-reveal::after {
+    content: '';
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    top: 0;
+    background-color: var(--secondary-color);
+    transition: all 0.5s ease;
+}
+
+.curtain-reveal::before {
+    left: 0;
+    transform: translateX(-100%);
+}
+
+.curtain-reveal::after {
+    right: 0;
+    transform: translateX(100%);
+}
+
+.curtain-reveal:hover::before {
+    transform: translateX(-50%);
+}
+
+.curtain-reveal:hover::after {
+    transform: translateX(50%);
+}
+
+/* 95. Blurred Edge */
+.blurred-edge {
+    transition: all 0.3s ease;
+}
+
+.blurred-edge:hover {
+    box-shadow: 0 0 15px var(--secondary-color);
+    filter: drop-shadow(0 0 5px var(--secondary-color));
+}
+
+/* 96. Side Bounce */
+@keyframes sideBounce {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+}
+
+.side-bounce:hover {
+    animation: sideBounce 0.5s ease;
+}
+
+/* 97. Lift Shadow */
+.lift-shadow {
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.lift-shadow:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 25px rgba(0,0,0,0.2);
+}
+
+/* 98. Zoom Background */
+.zoom-background {
+    position: relative;
+    overflow: hidden;
+}
+
+.zoom-background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, var(--secondary-color) 0%, transparent 70%);
+    transform: scale(1);
+    opacity: 0.3;
+    transition: all 0.3s ease;
+}
+
+.zoom-background:hover::before {
+    transform: scale(1.3);
+}
+
+/* 99. Uneven Border */
+.uneven-border {
+    position: relative;
+    background-color: transparent;
+    border: none;
+    color: var(--secondary-color);
+}
+
+.uneven-border::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 2px solid var(--secondary-color);
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.uneven-border:hover::before {
+    border-width: 4px 1px 4px 1px;
+}
+
+/* 100. Typewriter */
+@keyframes typewriter {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+.typewriter {
+    position: relative;
+    overflow: hidden;
+}
+
+.typewriter::after {
+    content: 'Hover Me';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.typewriter:hover::after {
+    animation: typewriter 1s steps(8) forwards;
+}
+
+/* 101. Starburst */
+@keyframes starburst {
+    0% { box-shadow: 0 0 0 0 var(--secondary-color); }
+    100% { box-shadow: 0 0 20px 10px rgba(0,0,0,0); }
+}
+
+.starburst:hover {
+    animation: starburst 0.5s ease;
+}
+
+/* 102. Sonar Effect */
+@keyframes sonarEffect {
+    0% { opacity: 0.3; transform: scale(1); }
+    100% { opacity: 0; transform: scale(3); }
+}
+
+.sonar-effect {
+    position: relative;
+    overflow: visible;
+}
+
+.sonar-effect::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    background-color: var(--secondary-color);
+    opacity: 0;
+    z-index: -1;
+    transform: scale(1);
+}
+
+.sonar-effect:hover::before {
+    animation: sonarEffect 1s ease infinite;
+}
+
+/* 103. Stitched Button */
+.stitched {
+    background-color: transparent;
+    border: 2px dashed var(--secondary-color);
+    color: var(--secondary-color);
+    box-shadow: 0 0 0 4px var(--card-bg-color), 0 0 0 5px rgba(255,255,255,0.2);
+    transition: all 0.3s ease;
+}
+
+.stitched:hover {
+    box-shadow: 0 0 0 4px var(--card-bg-color), 0 0 0 5px var(--secondary-color);
+}
+
+/* 104. Pill Shape */
+.pill-shape {
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+.pill-shape:hover {
+    border-radius: 5px;
+}
+
+/* 105. Origami Fold */
+.origami-fold {
+    transition: all 0.5s ease;
+    transform-origin: top left;
+}
+
+.origami-fold:hover {
+    transform: perspective(500px) rotateX(30deg) rotateY(15deg) rotateZ(-10deg);
+    box-shadow: -5px 5px 15px rgba(0,0,0,0.3);
+}
+
+/* 106. Radial Wipe */
+.radial-wipe {
+    position: relative;
+    overflow: hidden;
+}
+
+.radial-wipe::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(from 0deg, var(--secondary-color) 0%, transparent 50%, transparent 100%);
+    transform: rotate(0deg);
+    transition: all 0.5s ease;
+}
+
+.radial-wipe:hover::before {
+    transform: rotate(360deg);
+}
+
+/* 107. Perspective Rotate */
+.perspective-rotate {
+    transition: all 0.5s ease;
+    perspective: 800px;
+}
+
+.perspective-rotate:hover {
+    transform: perspective(800px) rotateY(20deg);
+}
+
+/* 108. Unfolding */
+.unfolding {
+    transition: all 0.5s ease;
+    transform-origin: center;
+}
+
+.unfolding:hover {
+    transform: perspective(800px) rotateX(180deg);
+    backface-visibility: hidden;
+}
+
+/* 109. Shadow Drop */
+.shadow-drop {
+    transition: all 0.3s ease;
+}
+
+.shadow-drop:hover {
+    box-shadow: 0 15px 15px rgba(0,0,0,0.3);
+    transform: translateY(5px);
+}
+
+/* 110. Perspective Swing */
+@keyframes perspectiveSwing {
+    0% { transform: perspective(800px) rotateY(0); }
+    25% { transform: perspective(800px) rotateY(15deg); }
+    75% { transform: perspective(800px) rotateY(-15deg); }
+    100% { transform: perspective(800px) rotateY(0); }
+}
+
+.perspective-swing:hover {
+    animation: perspectiveSwing 1s ease;
+}
+
+/* 111. Hollow To Filled */
+.hollow-to-filled {
+    background-color: transparent;
+    border: 2px solid var(--secondary-color);
+    color: var(--secondary-color);
+    transition: all 0.3s ease;
+}
+
+.hollow-to-filled:hover {
+    background-color: var(--secondary-color);
+    color: var(--main-bg-color);
+}
+
+/* 112. Border Rotation */
+@keyframes borderRotation {
+    0% { border-radius: 5px; }
+    25% { border-radius: 15px 5px 15px 5px; }
+    50% { border-radius: 5px 15px 5px 15px; }
+    75% { border-radius: 15px 5px 15px 5px; }
+    100% { border-radius: 5px; }
+}
+
+.border-rotation:hover {
+    animation: borderRotation 2s ease infinite;
+}
+
+/* 113. Lightning */
+@keyframes lightning {
+    0%, 100% { opacity: 1; }
+    10%, 30%, 50%, 70%, 90% { opacity: 0.8; box-shadow: 0 0 15px var(--secondary-color); }
+    20%, 40%, 60%, 80% { opacity: 1; box-shadow: none; }
+}
+
+.lightning:hover {
+    animation: lightning 0.5s ease;
+}
+
+/* 114. Cell Division */
+.cell-division {
+    position: relative;
+    overflow: hidden;
+}
+
+.cell-division::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 2px;
+    height: 100%;
+    background-color: rgba(255,255,255,0.5);
+    transform: translateX(-50%);
+    transition: all 0.3s ease;
+}
+
+.cell-division:hover::after {
+    width: 100%;
+}
+
+/* 115. Glass Effect */
+.glass-effect {
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.glass-effect:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* 116. Spin Entry */
+@keyframes spinEntry {
+    0% { transform: rotate(0deg) scale(0); opacity: 0; }
+    100% { transform: rotate(720deg) scale(1); opacity: 1; }
+}
+
+.spin-entry:hover {
+    animation: spinEntry 0.5s ease;
+}
+
+/* 117. Character Parade */
+@keyframes characterParade {
+    0% { transform: translateX(-30px); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+}
+
+.character-parade:hover span {
+    display: inline-block;
+    animation: characterParade 0.5s forwards;
+}
+
+.character-parade:hover span:nth-child(2) { animation-delay: 0.1s; }
+.character-parade:hover span:nth-child(3) { animation-delay: 0.2s; }
+.character-parade:hover span:nth-child(4) { animation-delay: 0.3s; }
+.character-parade:hover span:nth-child(5) { animation-delay: 0.4s; }
+.character-parade:hover span:nth-child(6) { animation-delay: 0.5s; }
+.character-parade:hover span:nth-child(7) { animation-delay: 0.6s; }
+.character-parade:hover span:nth-child(8) { animation-delay: 0.7s; }
+
+/* 118. Triple Bounce */
+@keyframes tripleBounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
+}
+
+.triple-bounce:hover {
+    animation: tripleBounce 0.5s ease 3;
+}
+
+/* 119. SVG Effect */
+.svg-effect .svg-icon {
+    transition: all 0.3s ease;
+    margin-right: 5px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.svg-effect:hover .svg-icon {
+    transform: rotate(180deg);
+    stroke: white;
+}
+
+/* 120. Spotlight Track */
+.spotlight-track {
+    position: relative;
+    overflow: hidden;
+}
+
+.spotlight-track::before {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: -100%;
+    width: 50px;
+    height: 50px;
+    background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, transparent 70%);
+    border-radius: 50%;
+    transition: all 0.05s ease-out;
+    opacity: 0;
+}
+
+.spotlight-track:hover::before {
+    opacity: 0.7;
+}
+
+/* 121. Letter Flip */
+@keyframes letterFlip {
+    0% { transform: rotateX(0); }
+    100% { transform: rotateX(360deg); }
+}
+
+.letter-flip:hover span {
+    display: inline-block;
+    animation: letterFlip 0.5s ease forwards;
+}
+
+.letter-flip:hover span:nth-child(2) { animation-delay: 0.1s; }
+.letter-flip:hover span:nth-child(3) { animation-delay: 0.2s; }
+.letter-flip:hover span:nth-child(4) { animation-delay: 0.3s; }
+.letter-flip:hover span:nth-child(5) { animation-delay: 0.4s; }
+.letter-flip:hover span:nth-child(6) { animation-delay: 0.5s; }
+.letter-flip:hover span:nth-child(7) { animation-delay: 0.6s; }
+.letter-flip:hover span:nth-child(8) { animation-delay: 0.7s; }
+
+/* 122. Magnet Push */
+.magnet-push {
+    transition: all 0.3s ease;
+}
+
+.magnet-push:hover {
+    transform: scale(0.9);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+}
+
+/* 123. Floating Button */
+@keyframes floating {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.floating-button:hover {
+    animation: floating 2s ease infinite;
+}
+
+/* 124. Ripple Out */
+@keyframes rippleOut {
+    0% { box-shadow: 0 0 0 0 rgba(var(--secondary-color-rgb), 0.5); }
+    100% { box-shadow: 0 0 0 20px rgba(var(--secondary-color-rgb), 0); }
+}
+
+.ripple-out:hover {
+    animation: rippleOut 0.8s ease;
+}
+
+/* 125. Color Sound Wave */
+@keyframes colorSoundWave {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+.color-sound-wave {
+    background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #8675a9);
+    background-size: 300% 100%;
+    transition: all 0.3s ease;
+}
+
+.color-sound-wave:hover {
+    animation: colorSoundWave 2s ease infinite;
+}
+
+/* 126. 3D Shadow */
+.shadow-3d {
+    transition: all 0.3s ease;
+}
+
+.shadow-3d:hover {
+    transform: perspective(500px) translateZ(20px);
+    box-shadow: 
+        0 10px 10px rgba(0,0,0,0.2),
+        0 20px 20px rgba(0,0,0,0.1);
+}
+
+/* 127. Radial Progress */
+.radial-progress {
+    position: relative;
+    overflow: hidden;
+}
+
+.radial-progress::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: conic-gradient(var(--secondary-color) 0deg, transparent 0deg);
+    transition: all 0.5s ease;
+}
+
+.radial-progress:hover::before {
+    background: conic-gradient(var(--secondary-color) 360deg, transparent 0deg);
+}
+
+/* 128. Crosshair */
+.crosshair {
+    position: relative;
+    z-index: 1;
+}
+
+.crosshair::before, .crosshair::after {
+    content: '';
+    position: absolute;
+    background-color: rgba(255,255,255,0.5);
+    opacity: 0;
+    transition: all 0.3s ease;
+    z-index: -1;
+}
+
+.crosshair::before {
+    top: 50%;
+    left: 0;
+    width: 0;
+    height: 1px;
+    transform: translateY(-50%);
+}
+
+.crosshair::after {
+    top: 0;
+    left: 50%;
+    width: 1px;
+    height: 0;
+    transform: translateX(-50%);
+}
+
+.crosshair:hover::before {
+    width: 100%;
+    opacity: 1;
+}
+
+.crosshair:hover::after {
+    height: 100%;
+    opacity: 1;
+}
+
+/* 129. Shadow Rotation */
+@keyframes shadowRotation {
+    0% { box-shadow: 5px 5px 10px rgba(0,0,0,0.2); }
+    25% { box-shadow: -5px 5px 10px rgba(0,0,0,0.2); }
+    50% { box-shadow: -5px -5px 10px rgba(0,0,0,0.2); }
+    75% { box-shadow: 5px -5px 10px rgba(0,0,0,0.2); }
+    100% { box-shadow: 5px 5px 10px rgba(0,0,0,0.2); }
+}
+
+.shadow-rotation:hover {
+    animation: shadowRotation 1s ease infinite;
+}
+
+/* 130. Bubble Shine */
+.bubble-shine {
+    position: relative;
+    overflow: hidden;
+}
+
+.bubble-shine::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.5) 0%, transparent 20%);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.bubble-shine:hover::before {
+    opacity: 1;
+}
+
+/* 131. Breathing Effect */
+@keyframes breathing {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.breathing-effect:hover {
+    animation: breathing 2s ease infinite;
+}
+
+/* 132. Text Shuffle */
+@keyframes textShuffle {
+    0% { transform: translateX(0); opacity: 1; }
+    25% { transform: translateX(10px); opacity: 0; }
+    50% { transform: translateX(-10px); opacity: 0; }
+    75% { transform: translateX(0); opacity: 1; }
+}
+
+.text-shuffle:hover {
+    position: relative;
+}
+
+.text-shuffle:hover::after {
+    content: 'Click Me!';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: textShuffle 0.5s ease;
+}
+
+/* 133. Slice In */
+.slice-in {
+    position: relative;
+    overflow: hidden;
+}
+
+.slice-in::before, .slice-in::after {
+    content: '';
+    position: absolute;
+    background-color: var(--secondary-color);
+    transition: all 0.5s ease;
+}
+
+.slice-in::before {
+    top: 0;
+    left: 0;
+    width: 2px;
+    height: 0;
+}
+
+.slice-in::after {
+    bottom: 0;
+    right: 0;
+    width: 2px;
+    height: 0;
+}
+
+.slice-in:hover::before, .slice-in:hover::after {
+    height: 100%;
+}
+
+.staggered-rise span {
+    display: inline-block;
+}
+
+.text-wave span {
+    display: inline-block;
+}
+
+.character-parade span {
+    display: inline-block;
+}
+
+.letter-flip span {
+    display: inline-block;
+}
+
+/* Fix spotlight track button */
+.spotlight-track::before {
+    content: '';
+    position: absolute;
+    top: var(--spotlight-y, -100px);
+    left: var(--spotlight-x, -100px);
+    width: 50px;
+    height: 50px;
+    background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, transparent 70%);
+    border-radius: 50%;
+    transition: opacity 0.05s ease-out;
+    opacity: 0;
+}
+
+/* Fix SVG icon effect */
+.svg-effect .svg-icon {
+    transition: all 0.3s ease;
+    margin-right: 5px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+@keyframes sonarEffect {
+    0% { opacity: 0.3; transform: scale(1); }
+    100% { opacity: 0; transform: scale(3); }
+}
+
+.sonar-effect {
+    position: relative;
+    overflow: visible;
+}
+
+.sonar-effect::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    background-color: var(--secondary-color);
+    opacity: 0;
+    z-index: -1;
+    transform: scale(1);
+}
+
+.sonar-effect:hover::before {
+    animation: sonarEffect 1s ease infinite;
+}
+
+/* Fix neon flicker */
+@keyframes neonFlicker {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { 
+        text-shadow: 0 0 5px var(--secondary-color),
+                     0 0 10px var(--secondary-color),
+                     0 0 15px var(--secondary-color);
+        box-shadow: 0 0 5px var(--secondary-color),
+                    0 0 10px var(--secondary-color);
+    }
+    20%, 24%, 55% { 
+        text-shadow: none;
+        box-shadow: none;
+    }
+}
+
+/* Fix Snake Border */
+@keyframes snakeBorder {
+    0% { width: 0; height: 2px; top: 0; left: 0; }
+    25% { width: 100%; height: 2px; top: 0; left: 0; }
+    50% { width: 2px; height: 100%; top: 0; left: calc(100% - 2px); }
+    75% { width: 100%; height: 2px; top: calc(100% - 2px); left: 0; }
+    100% { width: 2px; height: 100%; top: 0; left: 0; }
+}
+
+/* Fix echo effect */
+@keyframes echoEffect {
+    0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4); }
+    70% { box-shadow: 0 0 0 15px rgba(255, 255, 255, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+}
+
+/* Fix radial progress */
+.radial-progress {
+    position: relative;
+    overflow: hidden;
+}
+
+.radial-progress::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: conic-gradient(var(--secondary-color) 0deg, transparent 0deg);
+    transition: all 0.5s ease;
+}
+
+.radial-progress:hover::before {
+    background: conic-gradient(var(--secondary-color) 360deg, transparent 0deg);
+}
+
+/* Fix cursor styling */
+.hover-btn, .color-shift, .morph-effect, .sheen-effect, .text-blur, .heartbeat, .radial-highlight, .push-3d, .zoom-out, .hollow-fill {
+    cursor: none !important;
+}
+
+.diagonal-swipe, .icon-swap, .glowing-edges, .shadow-inset, .color-rain, .paper-fold, .ghost-effect, .spinning-loader, .staggered-rise, .tilt-3d {
+    cursor: none !important;
+}
+
+/* Apply cursor: none to all buttons */
+.particle-burst, .layered-shadows, .stretchy-effect, .comic-pop, .pixel-dissolve, .rotate-scale, .jump-shake, .echo-effect, .reflection, .shine-lines, .reveal-text, .gradient-border, .snake-border, .character-rise, .squeeze, .text-wave, .neon-flicker, .split-color, .bouncy-shadow, .wind-effect, .perspective-tilt, .shrink-border, .rotational-push, .dotted-trail, .polaroid, .checkbox-style, .arrow-appear, .marquee-effect, .slide-up-fill, .jello-effect {
+    cursor: none !important;
+}
+
+.diagonal-cut, .fragmented, .picture-frame, .iris-wipe, .underline-slide, .spiral-spin, .text-shadow, .flash-effect, .vibration, .double-swipe, .expand-corners, .magnet-attract, .fade-in-text, .slash-through, .curtain-reveal, .blurred-edge, .side-bounce, .lift-shadow, .zoom-background, .uneven-border, .typewriter {
+    cursor: none !important;
+}
+
+.starburst, .sonar-effect, .stitched, .pill-shape, .origami-fold, .radial-wipe, .perspective-rotate, .unfolding, .shadow-drop, .perspective-swing, .hollow-to-filled, .border-rotation, .lightning, .cell-division, .glass-effect, .spin-entry, .character-parade, .triple-bounce, .svg-effect, .spotlight-track, .letter-flip, .magnet-push, .floating-button, .ripple-out, .color-sound-wave, .shadow-3d, .radial-progress, .crosshair, .shadow-rotation, .bubble-shine, .breathing-effect, .text-shuffle, .slice-in {
+    cursor: none !important;
+}
+
+/* Ensure all the new buttons have proper cursor styles */
+.button-card * {
+    cursor: none !important;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .buttons-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Fix cursor styling on elements */
+.hover-btn, .flipper, button, a, #options-button {
+    cursor: none !important;
+}
+
+/* Ensure custom cursor elements are visible */
+.cursor-svg, .cursor, .cursor-dot {
+    z-index: 10001 !important;
+    pointer-events: none !important;
+}
+
+/* Add specific cursor style to prevent flicker */
+.button-card, .front, .back {
+    cursor: none !important;
+}
+
+/* Remove any conflicting cursor styles */
+p, h1, h2, h3, span {
+    cursor: none !important;
+}
